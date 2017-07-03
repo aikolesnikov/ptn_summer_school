@@ -25,3 +25,8 @@ elif a<b:
 	print("no")
 else:
 	print("bigger")
+	
+i = 0 
+while i<3:
+	print(i)
+	i=i+1

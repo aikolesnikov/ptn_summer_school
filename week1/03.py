@@ -19,3 +19,5 @@ while tries<5:
 else:
 	print("???")
 
+for c in "hello":
+	print(c)

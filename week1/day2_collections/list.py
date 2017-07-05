@@ -21,7 +21,10 @@ print(l1)
 l3 = l2.copy()
 print(l3)
 l2 = [1, 2, ['a', 'b', 'c'], 3]
-
+l3=l2
+l33 = l2.copy()
 print(l3)
+print(l33)
 import copy
 l4 = copy.deepcopy(l2)
+print(l4)

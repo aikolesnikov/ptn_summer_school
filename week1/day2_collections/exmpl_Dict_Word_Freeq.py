@@ -18,7 +18,7 @@ with open('pg1661.txt', 'rt') as f:
     word_counter = {}
     for word in words:
         if word in word_counter:
-            word_counter[word] = word_counter[word] +1
+            word_counter[word] = word_counter[word] + 1
         else:
             word_counter[word] = 1
 

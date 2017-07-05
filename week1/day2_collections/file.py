@@ -28,3 +28,7 @@ f.close()
 with open('1.txt', 'rt') as f:
     for line in f:
         print(line)
+
+s = 'hello'
+for i, c in enumerate(s):
+    print(i,c)

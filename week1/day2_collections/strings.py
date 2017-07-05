@@ -21,3 +21,8 @@ print('name=' + name + ', age:' + str(age))
 "Name: %s; age: %d", name, age
 
 # f"Name: {name}; age: {age}"
+
+print()
+s = 'hello'
+for i, c in enumerate(s):
+    print(i,c)

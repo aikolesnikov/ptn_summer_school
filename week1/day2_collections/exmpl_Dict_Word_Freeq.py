@@ -25,4 +25,4 @@ with open('pg1661.txt', 'rt') as f:
     print(word_counter)
     print(len(word_counter))
 
-    // отсортировать слова по частоте и записать в файл
+    # отсортировать слова по частоте и записать в файл

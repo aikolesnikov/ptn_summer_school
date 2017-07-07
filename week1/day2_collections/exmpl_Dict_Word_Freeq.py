@@ -33,5 +33,9 @@ with open('pg1661.txt', 'rt') as f:
     #        f2.write('\n')
 
     counter_word = [(counter, word) for word, counter in word_counter.items()]
+    counter_word.sort(reverse=True)
     print(counter_word)
 
+    with open('w_pg1661.txt', 'wt') as f2:
+        for counter, word in counter_word:
+            f2.write("{}\t{}\n".format(word, counter))

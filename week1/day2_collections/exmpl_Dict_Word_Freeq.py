@@ -22,6 +22,7 @@ with open('pg1661.txt', 'rt') as f:
         else:
             word_counter[word] = 1
 
+
     # print(word_counter)
     # print(len(word_counter))
 

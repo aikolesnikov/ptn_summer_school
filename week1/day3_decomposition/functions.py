@@ -71,3 +71,7 @@ l.sort()
 print(l)
 l.sort(key=lambda x: x[1])
 print(l)
+
+l = [1, 'a', (2,3)]
+l.sort(key=str)
+print(l)

@@ -27,4 +27,11 @@ print()
 print(a[0, 1])
 print(a[0, :])
 print(a[:, 0])
+print(a[:, [0, 2]])
+print(np.nanmin(a)-np.nanmax(a))
+print()
+
+print(np.nanpercentile(a, 25))
+b = np.random.rand(100,100)
+print(np.percentile(b, 25))
 

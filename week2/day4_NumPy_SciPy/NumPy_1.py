@@ -38,4 +38,7 @@ print(b1[m])
 
 for i in a1.flat:
     print(i)
+print()
+
+
 

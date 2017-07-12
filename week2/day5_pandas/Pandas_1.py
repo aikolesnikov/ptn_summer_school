@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
 ts = pd.read_csv('~/prog/pyt/data/GlobalLandTemperaturesByMajorCity.csv')
 
@@ -45,3 +46,35 @@ tsk['year'] = tsk['dt'].dt.year
 print(tsk)
 tsk.groupby('year')
 print(type(tsk.groupby('year')))
+tsk.groupby('year')['AverageTemperature'].aggregate(min)
+tsk.groupby('year')['AverageTemperature'].aggregate(max)
+tsk.groupby('year')['AverageTemperature'].aggregate(np.median)
+print(tsk.groupby('year')['AverageTemperature'].aggregate(np.median))
+
+tsk2 = tsk.groupby('year')['AverageTemperature'].aggregate(np.median)
+plt.plot(tsk2)
+#plt.show()
+
+def round_year(year):
+    return year // 5 * 5;
+print(round_year(2011))
+
+tsk['year5'] = tsk['year'].apply(round_year)
+print(tsk)
+tskm = tsk.groupby('year5')['AverageTemperature'].aggregate(np.median)
+
+f = np.poly1d(np.polyfit(tskm.index, tskm, 1))
+print(f(2010))
+
+plt.plot(tskm.index, f(tskm.index), 'x', tskm, '-')
+#plt.show()
+
+
+### -------------------------------------------
+ts0 = pd.read_csv('~/prog/pyt/data/GlobalLandTemperaturesByCountry.csv', parse_dates=['dt'])
+
+tsk3 = ts0.groupby('Country')['AverageTemperature'].aggregate(np.median)
+print(tsk3.index)
+print(tsk3)
+tsk3.plot()
+plt.show()

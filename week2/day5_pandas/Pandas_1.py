@@ -24,6 +24,24 @@ print()
 print(ts['City'].values)
 print(ts['City'].values == 'Kiev')
 print(ts[ts['City'].values == 'Kiev'])
-# plt.plot(ts[ts['City'].values=='Kiev'])
+print(ts[ts['City'].values == 'Kiev'].dropna())
+
 plt.plot(ts.index, ts['AverageTemperature'])
-plt.show()
+ds2 = ts[ts['City'] == 'Kiev'].dropna()
+plt.plot(ds2.index, ds2['AverageTemperature'])
+#plt.show()
+
+
+### -------------------------------------------
+ts = pd.read_csv('~/prog/pyt/data/GlobalLandTemperaturesByMajorCity.csv', parse_dates=['dt'])
+print(ts)
+
+tsk = ts[ts['City'] == 'Kiev']
+print(tsk.count())
+print(ts['dt'])
+
+tsk = tsk.interpolate()
+tsk['year'] = tsk['dt'].dt.year
+print(tsk)
+tsk.groupby('year')
+print(type(tsk.groupby('year')))

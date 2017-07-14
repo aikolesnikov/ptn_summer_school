@@ -9,6 +9,6 @@ tsk3 = ts0.dropna().groupby('Country')['AverageTemperature'].aggregate(np.median
 print(tsk3.index)
 ds2 = ts0[ts0['AverageTemperature'].values >= 22].dropna()
 print(ds2)
-#tsk3.plot()
-#plt.show()
+tsk3.plot()
+plt.show()
 

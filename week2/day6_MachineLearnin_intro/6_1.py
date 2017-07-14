@@ -21,14 +21,24 @@ print(len(features[target == 0]))
 #plt.scatter(features[target == 1, 0], features[target == 1, 1], marker='o')
 #plt.scatter(features[target == 2, 0], features[target == 2, 1], marker='o')
 
-plt.scatter(features[target == 0, 2], features[target == 0, 3], marker='o')
-plt.scatter(features[target == 1, 2], features[target == 1, 3], marker='o')
-plt.scatter(features[target == 2, 2], features[target == 2, 3], marker='o')
-
+#better
+#plt.scatter(features[target == 0, 2], features[target == 0, 3], marker='o')
+#plt.scatter(features[target == 1, 2], features[target == 1, 3], marker='o')
+#plt.scatter(features[target == 2, 2], features[target == 2, 3], marker='o')
 plt.show()
 
 from sklearn.neighbors import KNeighborsClassifier
 clr = KNeighborsClassifier(n_neighbors=3)
+print(clr.fit(features[1:], target[1:]))
+print(clr.predict(features[0]))
 
 
+from sklearn.cross_validation import KFold
+kf = KFold(len(features), n_folds=5, shuffle=True)
+print(kf)
+for i in kf:
+    print(i)
 
+for training, testing in kf:
+    clr.fit(features[training], target[training])
+    print(np.mean(np.abs(clr.predict(features[testing])== target[testing])))
